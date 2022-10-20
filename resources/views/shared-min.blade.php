@@ -67,23 +67,18 @@
     
     <!-- Custom styles -->
     <link href="{{asset('css/shared.css')}}" rel="stylesheet">
-    @yield('links-css')
+    @yield('links-min-css')
   </head>
   <body class="d-flex h-100 text-center text-bg-dark">
     
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
   <header class="mb-auto">
-    <div><!-- review this -->
-      <img src="{{asset('img/gm-logo.png')}}" alt="Gabriela Mistral Logo" height="50px">
-      <h3 class="float-md-start mb-0">Gabriela Mistral</h3>
+    <div>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        @yield('navigator')
         <div class="dropdown show dd-main-positioning">
-          <a class="btn btn-secondary dropdown-toggle dd-colors" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            @auth
-            <b>{{auth()->user()->username}}</b>
-            @endauth
+          <a class="btn btn-secondary dropdown-toggle dd-colors" href="/logout" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <b>Usuario</b>
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
@@ -91,10 +86,8 @@
         </div>
       </nav>
       <div class="dropdown show dd-positioning dd-colors">
-        <a class="btn btn-secondary dropdown-toggle dd-colors" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          @auth
-            <b>{{auth()->user()->username}}</b>
-            @endauth
+        <a class="btn btn-secondary dropdown-toggle dd-colors" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <b>Usuario</b>
         </a>    
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
@@ -103,7 +96,7 @@
   </header>
 
   <main class="px-3">
-    @yield('content')
+    @yield('content-min')
   </main>
 
   <footer class="mt-auto text-white-50">

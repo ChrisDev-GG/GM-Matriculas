@@ -1,0 +1,29 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo{
+    float: inline-start;
+    position: relative;
+    left: 50px;
+}
+
+.page-break {
+    page-break-after: always;
+}
+
+.title{
+    text-align: center;
+}
+
+.title_two{
+    text-align: center ;
+}
+
+.title_three{
+    display: inline;
+}
+
+
+
+
