@@ -9,7 +9,7 @@
         <a class="nav-link fw-bold py-1 px-0" href="/registros">Registros</a>
         <a class="nav-link fw-bold py-1 px-0" href="/matriculas">Matriculas</a>
         @auth
-          @if(auth()->user()->user_type == 'administrador')
+          @if(auth()->user()->user_type == 'administrador' || auth()->user()->user_type == 'root')
             <a class="nav-link fw-bold py-1 px-0" href="/usuarios">Usuarios</a>
           @endif
         @endauth
@@ -17,7 +17,10 @@
 
 @section('content')
     <section>
-        <h1 class="home-title">Bienvenido</h1>
+        <h1 class="home-title">Bienvenido/a &nbsp;{{auth()->user()->username}}</h1>
+    </section>
+    <section>
+      @include('Messages.users-msg')
     </section>
 
     <section>
@@ -34,7 +37,7 @@
                 </div>
               </div>
             @endif
-            @if(auth()->user()->user_type == 'administrador')
+            @if(auth()->user()->user_type == 'administrador' || auth()->user()->user_type == 'root')
               <div class="col-sm-6 home-card-mg">
                 <div class="card home-card-color">
                   <div class="card-body home-text-color">
@@ -66,5 +69,6 @@
                 </div>
               </div>
           </div>
+
     </section>
 @endsection

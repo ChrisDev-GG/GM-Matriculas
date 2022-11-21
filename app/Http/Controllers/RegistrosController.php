@@ -11,6 +11,12 @@ class RegistrosController extends Controller
     private $viewRegistros = 'Registros.registros';
     private $viewAlumnos = 'Registros.alumnos';
     private $viewApoderados = 'Registros.apoderados';
+    private $viewAlumnosSuccess = 'Registros.registro-alumno-success';
+    private $viewApoderadosSuccess = 'Registros.registro-apoderado-success';
+    private $viewAlumnosUpdate = 'Registros.update-alumno-success';
+    private $viewApoderadosUpdate = 'Registros.update-apoderado-success';
+    private $viewSuplentesSuccess = 'Registros.registro-suplente-success';
+    private $viewSuplentesUpdate = 'Registros.update-suplente-success';
 
     /**
      * Description: 
@@ -38,6 +44,60 @@ class RegistrosController extends Controller
      */
     public function showApoderados(){
         return $this->userAuthorize($this->viewApoderados);
+    }
+    /**
+     * Description: 
+     * Method with user restriction to get apoderados view, not logged users get redirected to login view.
+     * Works with route: '/registros/apoderados'
+     * @return view 
+     */
+    public function alumnoConfirmation(){
+        return $this->userAuthorize($this->viewAlumnosSuccess);
+    }
+    /**
+     * Description: 
+     * Method with user restriction to get apoderados view, not logged users get redirected to login view.
+     * Works with route: '/registros/apoderado-success'
+     * @return view 
+     */
+    public function apoderadoConfirmation(){
+        return $this->userAuthorize($this->viewApoderadosSuccess);
+    }
+    /**
+     * Description: 
+     * Method with user restriction to get apoderados view, not logged users get redirected to login view.
+     * Works with route: '/registros/apoderado-success'
+     * @return view 
+     */
+    public function apoderadoUpdateConfirmation(){
+        return $this->userAuthorize($this->viewApoderadosUpdate);
+    }
+    /**
+     * Description: 
+     * Method with user restriction to get apoderados view, not logged users get redirected to login view.
+     * Works with route: '/registros/apoderado-success'
+     * @return view 
+     */
+    public function alumnoUpdateConfirmation(){
+        return $this->userAuthorize($this->viewAlumnosUpdate);
+    }
+    /**
+     * Description: 
+     * Method with user restriction to get apoderados view, not logged users get redirected to login view.
+     * Works with route: '/registros/suplente-success'
+     * @return view 
+     */
+    public function suplenteConfirmation(){
+        return $this->userAuthorize($this->viewSuplentesSuccess);
+    }
+    /**
+     * Description: 
+     * Method with user restriction to get apoderados view, not logged users get redirected to login view.
+     * Works with route: '/registros/apoderado-success'
+     * @return view 
+     */
+    public function suplenteUpdateConfirmation(){
+        return $this->userAuthorize($this->viewSuplentesUpdate);
     }
 
 }

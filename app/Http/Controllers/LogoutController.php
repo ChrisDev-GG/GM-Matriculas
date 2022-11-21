@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -15,8 +16,12 @@ class LogoutController extends Controller
      * @return view 
      */
     public function logout(){
-        Session::flush();
-        Auth::logout();
-        return redirect('/login');
+        try{
+            Session::flush();
+            Auth::logout();
+            return redirect('/login');
+        }catch(Exception $e){
+            return redirect()->to('/home')->withErrors($e->getMessage());
+        }
     }
 }

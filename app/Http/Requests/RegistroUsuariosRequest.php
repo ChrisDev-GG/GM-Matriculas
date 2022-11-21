@@ -24,12 +24,12 @@ class RegistroUsuariosRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:users,name',
+            'nombre' => 'required',
             'email' => 'required|unique:users,email',
-            'user_type' => 'required',
-            'username' => 'required|unique:users,username',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required|same:password',
+            'tipo_de_usuario' => 'required',
+            'nombre_de_usuario' => 'required|unique:users,username',
+            'contraseña' => 'required|min:8',
+            'confirmar_contraseña' => 'required|same:contraseña',
         ];
     }
 }

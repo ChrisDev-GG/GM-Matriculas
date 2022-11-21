@@ -1,0 +1,29 @@
+.dataTables_wrapper .dataTables_filter {
+    width:100%;
+    text-align:center;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    padding-bottom: .85em;
+    text-align: left; 
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: .8em;
+    display: inline-block;
+    width: 80%;
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: .85em;
+    padding-bottom: .85em;
+}
+
+.sorting{
+    text-align: center!important;
+}

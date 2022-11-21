@@ -18,11 +18,11 @@
             <h1 class="modal-title fs-5">Alumno registrado</h1>
         </div>
         <div class="modal-body py-0">
-            <p class="modal-title">Alumno ingresado al sistema. Puede volver al inicio o continuar registrando otros alumnos.</p>
+            <p class="modal-title">Alumno ingresado al sistema. Puede volver al inicio o continuar en la sección de alumnos.</p>
         </div>
         <div class="modal-footer flex-column border-top-0">
             <a href="/home" class="btn btn-lg btn-primary w-100 mx-0 mb-2"><i>Ir al inicio</i></a>
-            <a href="/usuarios/registrar_usuarios" type="button" class="btn btn-lg btn-light w-100 mx-0"><i>Agregar otro usuario</i></a>
+            <a href="/registros/alumnos" type="button" class="btn btn-lg btn-light w-100 mx-0"><i>Gestionar alumnos</i></a>
         </div>
     </div>
     </div>

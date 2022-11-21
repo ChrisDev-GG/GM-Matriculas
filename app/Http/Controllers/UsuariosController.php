@@ -12,6 +12,7 @@ class UsuariosController extends Controller
     #Strings that point to a specific view
     private $viewUsers = 'Usuarios.usuarios';
     private $viewConfirmation = 'Usuarios.registro-success';
+    private $viewUpdate = 'Usuarios.update-success';
 
     /**
      * Description: 
@@ -44,6 +45,15 @@ class UsuariosController extends Controller
      */
     public function confirmation(){
         return $this->userAuthorizeAdministrator($this->viewConfirmation);
+    }
+    /**
+     * Description: 
+     * Method with user restriction to get registro view, not logged users get redirected to login view.
+     * Works with route: '/usuarios/registro'
+     * @return view 
+     */
+    public function updateConfirmation(){
+        return $this->userAuthorizeAdministrator($this->viewUpdate);
     }
 }
 

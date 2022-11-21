@@ -24,6 +24,38 @@ html{
     display: inline;
 }
 
+.timbre{
+    position: absolute;
+    left: 430px;
+    bottom: 300px;    
+}
+
+.apoderado-name{
+    position: relative;
+    bottom: 35px;
+    left: 80px;
+}
+
+.line1{
+    position: absolute;
+    bottom: 260px;
+    left: 50px;
+}
+.line2{
+    position: absolute;
+    bottom: 260px;
+    left: 395px;
+}
+
+.apoderado-firma{
+    position: absolute;
+    left: 100px;
+}
+.institucion-firma{
+    position: absolute;
+    left: 390px;
+}
+
 
 
 

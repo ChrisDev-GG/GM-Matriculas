@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,13 +29,17 @@ class LoginController extends Controller
      * @return  view 
      */
     public function login(LoginRequest $request){
-        $credentials = $request->getCredentials();
-        if(!Auth::validate($credentials)){
-            return redirect()->to('/login')->withErrors('El Usuario/Contraseña no coinciden');
+        try{
+            $credentials = $request->getCredentials();
+            if(!Auth::validate($credentials)){
+                return redirect()->to('/login')->withErrors('El Usuario/Contraseña no coinciden');
+            }
+            $user = Auth::getProvider()->retrieveByCredentials($credentials);
+            Auth::login($user);
+            return $this->authenticated($request, $user);
+        }catch(Exception $e){
+            return redirect()->to('/login')->withErrors($e->getMessage());
         }
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-        Auth::login($user);
-        return $this->authenticated($request, $user);
     }
 
     /**

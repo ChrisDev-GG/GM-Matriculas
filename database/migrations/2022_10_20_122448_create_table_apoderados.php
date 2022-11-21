@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('apoderados', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('run');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address', 100)->nullable();
+            $table->boolean('status')->default(true);
+            $table->foreignId('id_user')->constrained('users');
             $table->timestamps();
         });
     }

@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('apod_sustituto', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('alumnos', function (Blueprint $table) {
+            $table->string('birth_date');
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apod_sustituto');
+        Schema::table('alumnos', function (Blueprint $table) {
+            $table->dropColumn('birth_date');
+        });
     }
 };

@@ -14,6 +14,8 @@
 }
 
 .home-title{
+    color: rgba(189, 182, 182, 0.9);
+    padding-top: 25px;
     margin-bottom: 40px; 
 }
 
@@ -44,7 +46,10 @@
 .form-check-pd{
     margin-bottom: 16px;
 }
-
+.form-rut{
+    display: inline;
+    width: 50%;
+}
 .check-pd{
     margin-left: 20px;
 }
@@ -59,11 +64,34 @@
     border: 3px solid rgb(227, 201, 54);
 }
 
+.matricula-title{
+    padding-top: 35px;
+    margin-bottom: 35px;
+}
+
 .gestion-title{
     margin-top: 20px;
     padding-bottom: 15px;
+}
+.gestion-title-alumnos{
+    margin-top: 20px;
+    padding-bottom: 8px;
+}
+.registro-alumnos-title{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.registro-apoderados-title{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.btn-create{
+    margin-left: 2px;
+    margin-bottom: 12px;
 }
 .btn-p{
     padding-top: 2px;
     padding-bottom: 2px;
 }
+

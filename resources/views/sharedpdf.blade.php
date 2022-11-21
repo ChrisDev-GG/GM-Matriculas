@@ -10,5 +10,6 @@
 <body>
     <img class="logo" src="{{public_path('img/gm-logo2.jpg')}}" width="90px" height="50px">
     @yield('pdf')
+    <img class="timbre" src="{{public_path('img/firma-gm.png')}}" width="130px" height="130px">
 </body>
 </html>
