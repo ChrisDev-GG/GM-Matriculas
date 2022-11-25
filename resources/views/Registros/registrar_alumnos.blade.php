@@ -40,6 +40,10 @@
             <input type="text" class="form-control" id="InputRun" placeholder="Rut" name="rut" max="10" value="{{old('rut')}}">
         </div>
         <div class="form-group form-pd">
+            <label for="InputDireccion">Direccion</label>
+            <input type="text" class="form-control" id="InputDireccion" placeholder="Direccion" name="direccion" max="10" value="{{old('direccion')}}">
+        </div>
+        <div class="form-group form-pd">
             <label for="InputCorreo">Correo</label>
             <input type="email" class="form-control" id="InputCorreo" placeholder="Email" name="email" value="{{old('email')}}">
         </div>

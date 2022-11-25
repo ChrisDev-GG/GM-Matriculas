@@ -18,13 +18,16 @@
 @section('content')
     <h1 class="registro-apoderados-title">Modificar Apoderado Suplente</h1>
 
-    <form action="/registros/suplentes/{{$suplente->id}}" method="POST">
+    <form action="/registros/suplentes/{{$suplente->id}}" method="POST" onsubmit="return isValidFormSuplentes();">
         @csrf
         @method('put')
         @include('Messages.apoderados-msg')
+        <div id="errors">
+
+        </div>
         <div class="form-group form-pd">
             <label for="InputNames">Nombre - <b>Antiguos : {{$suplente->name ?? "-"}}</b></label>
-            <input type="text" class="form-control" id="InputNames" placeholder="Nombres" name="nombre" value="{{old('nombres')}}">
+            <input type="text" class="form-control" id="InputNames" placeholder="Nombres" name="nombre" value="{{old('nombre')}}">
         </div>
 
         <div class="form-group form-pd">
@@ -34,7 +37,7 @@
         <div class="form-group form-pd">
             <label for="select-run">Sustituye a:</label>
             <div class="form-group form-pd">
-                <input type="text" class="form-control form-rut" placeholder="Rut (sin puntos y con guion)" id="search">
+                <input type="text" class="form-control form-rut" placeholder="Rut (sin puntos y con guion)" id="search" onfocusout="filterSuplente();">
                 <button type="button" class="btn btn-success" id="filterApoderado" onclick="filter()"><b>Buscar</b></button>
             </div>
             <select class="form-select" title="Apoderados" name="rut_apoderado_principal" id="select-run">
@@ -63,4 +66,5 @@
 
 @section('js')
     <script src="{{asset('js/filter.js')}}"></script>
+    <script src="{{asset('js/verifyData.js')}}"></script>
 @endsection

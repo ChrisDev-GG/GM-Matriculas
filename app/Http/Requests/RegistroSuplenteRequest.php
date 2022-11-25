@@ -27,7 +27,7 @@ class RegistroSuplenteRequest extends FormRequest
             'nombre' => 'required',
             'rut' => 'required|min:9|max:10|unique:apoderados_suplentes,run',
             'rut_apoderado_principal' => 'required',
-            'email' => 'nullable|unique:apoderados,email',
+            'email' => 'nullable|unique:apoderados_suplentes,email',
             'telefono' => 'nullable',
             'direccion' => 'nullable',
         ];

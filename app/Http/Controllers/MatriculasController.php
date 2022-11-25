@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 class MatriculasController extends Controller
 {
     #Strings that point to a specific view
+    private $viewDocuments = 'Matriculas.documents';
     private $viewMatriculas = 'Matriculas.matriculas';
 
     /**
@@ -26,6 +27,16 @@ class MatriculasController extends Controller
      * @return  view 
      */
     public function index(){
+        return $this->userAuthorize($this->viewDocuments);
+    }
+
+    /**
+     * Description: 
+     * Method with user restriction to get home view, not logged users get redirected to login view.
+     * Works with route: '/matriculas'
+     * @return  view 
+     */
+    public function prestacionServicios(){
         try{
             $alumnos = Alumno::orderBy('names','ASC')->get();
             $apoderados = Apoderado::orderBy('name','ASC')->get();
@@ -39,6 +50,8 @@ class MatriculasController extends Controller
             return redirect()->to('/home')->withErrors($e->getMessage());
         }
     }
+
+
 
     public function pdf(MatriculaRequest $request){
         try{

@@ -30,6 +30,7 @@ Route::get('/',[HomeController::class,'start']);
 Route::get('/home',[HomeController::class,'index']);
 
 Route::get('/matriculas', [MatriculasController::class,'index']);
+Route::get('/matriculas/dpds', [MatriculasController::class,'prestacionServicios']);
 
 Route::get('/registros', [RegistrosController::class,'index']);
 
@@ -49,6 +50,7 @@ Route::get('/logout', [LogoutController::class, 'logout']);
 //Route::get('/registros/alumnos', [RegistrosController::class, 'showAlumnos']);
 
 Route::resource('/registros/alumnos', AlumnosDataController::class);
+Route::get('/registros/alumnos-data', [AlumnosDataController::class, 'indexData']);
 Route::post('/registros/alumnos/{id}/activate', [AlumnosDataController::class, 'activateAlumno']);
 Route::post('/registros/alumnos/{id}/deactivate', [AlumnosDataController::class, 'deactivateAlumno']);
 
@@ -60,9 +62,9 @@ Route::resource('/registros/suplentes', ApoderadosSuplentesDataController::class
 Route::post('/registros/suplentes/{id}/activate', [ApoderadosSuplentesDataController::class, 'activateSuplente']);
 Route::post('/registros/suplentes/{id}/deactivate', [ApoderadosSuplentesDataController::class, 'deactivateSuplente']);
 
-Route::post('/registros/apoderados/search', [SearchByRutController::class, 'searchByRutApoderado']);
-Route::post('/registros/alumnos/search', [SearchByRutController::class, 'searchByRutAlumno']);
-Route::post('/registros/suplentes/search', [SearchByRutController::class, 'searchByRutSuplente']);
+//Route::post('/registros/apoderados/search', [SearchByRutController::class, 'searchByRutApoderado']);
+//Route::post('/registros/alumnos/search', [SearchByRutController::class, 'searchByRutAlumno']);
+//Route::post('/registros/suplentes/search', [SearchByRutController::class, 'searchByRutSuplente']);
 
 Route::get('/registros/alumno_success', [RegistrosController::class, 'alumnoConfirmation']);
 Route::get('/registros/apoderado_success', [RegistrosController::class, 'apoderadoConfirmation']);

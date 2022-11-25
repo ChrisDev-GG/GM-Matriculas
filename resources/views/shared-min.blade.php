@@ -78,7 +78,7 @@
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <div class="dropdown show dd-main-positioning">
           <a class="btn btn-secondary dropdown-toggle dd-colors" href="/logout" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <b>Usuario</b>
+            <b>{{auth()->user()->username}}</b>
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
@@ -87,7 +87,7 @@
       </nav>
       <div class="dropdown show dd-positioning dd-colors">
         <a class="btn btn-secondary dropdown-toggle dd-colors" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <b>Usuario</b>
+          <b>{{auth()->user()->username}}</b>
         </a>    
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="/logout">Cerrar Sesión</a>

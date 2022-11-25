@@ -21,7 +21,7 @@
         @include('Messages.users-msg')
     </section>
     <a class="btn btn-warning btn-create" href="/registros/alumnos/create"><b>Agregar nuevo alumno</b></a>
-    <a class="btn btn-primary btn-create" href="/registros/alumnos-data"><b>Datos Personales</b></a>&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-primary btn-create" href="/registros/alumnos"><b>Datos Generales</b></a>&nbsp;&nbsp;&nbsp;
     @if(auth()->user()->user_type == 'administrador' || auth()->user()->user_type == 'root')
         <a class="btn btn-danger btn-create" href="/registros/advance"><b>Adelantar año</b></a>
         <a class="btn btn-danger btn-create" href="/registros/setback"><b>Atrasar año</b></a>    
@@ -40,14 +40,13 @@
 
             <thead>
                 <tr class="table-info">
-                    <th scope="col">Nombres</th>
-                    <th scope="col">A. Paterno</th>
-                    <th scope="col">A. Materno</th>
-                    <th scope="col">Curso</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Rut</th>
-                    <th scope="col">Apoderado</th>
-                    {{-- <th scope="col">Email</th>
-                    <th scope="col">Telefono</th> --}}
+                    <th scope="col">Curso</th>
+                    <th scope="col">F. Nacimiento</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Direccion</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Modificar</th>
                 </tr>
@@ -62,16 +61,15 @@
                     @php 
                         $state = $alumno->status ? 'M' : 'R';
                     @endphp
-                    <th class="tb-name">{{$alumno->names}}</th>
-                    <th>{{$alumno->paternal_surename}}</th> 
-                    <th>{{$alumno->maternal_surename}}</th>
-                    <th>{{$alumno->grade}}</th>
+                    <th class="tb-name">{{$alumno->names}} {{$alumno->paternal_surename}} {{$alumno->maternal_surename}}</th>
                     <th>{{$alumno->run}}</th>
-                    <th>{{$alumno->id_apoderado}}</th>
-                    {{-- <th>{{$alumno->email}}</th>
-                    <th>{{$alumno->phone}}</th> --}}
+                    <th>{{$alumno->grade}}</th>
+                    <th>{{$alumno->birth_date}}</th>
+                    <th>{{$alumno->email}}</th>
+                    <th>{{$alumno->phone}}</th>
+                    <th>{{$alumno->address}}</th>
                     <th>{{$state}}</th>
-                    <th class="table-btn btn-alumnos"><a href="/registros/alumnos/{{$alumno->id}}/edit"><button class="btn btn-warning btn-p">Editar</button></a>
+                    <th><a href="/registros/alumnos/{{$alumno->id}}/edit"><button class="btn btn-warning btn-p" style="margin-bottom: 8px">Editar</button></a>
                         <a>
                     @if($alumno->status)
                         <form action="/registros/alumnos/{{$alumno->id}}/deactivate" method="POST">

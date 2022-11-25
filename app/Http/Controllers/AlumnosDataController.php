@@ -18,6 +18,7 @@ class AlumnosDataController extends Controller
     private $viewModificar = 'Registros.modificar_alumnos';
     private $viewRegistrar = 'Registros.registrar_alumnos';
     private $viewGestionar = 'Registros.gestionar_alumnos';
+    private $viewGestionarData = 'Registros.gestionar_alumnos_personal';
 
     /**
      * Display a listing of the resource.
@@ -31,11 +32,35 @@ class AlumnosDataController extends Controller
             foreach($alumnos as $alumno){
                 $apoderados =  Apoderado::where('id', '=', $alumno->id_apoderado)->first();
                 $run_apoderado = $apoderados->run;
-                $alumno->id_apoderado = $run_apoderado;
+                $alumno->id_apoderado = $apoderados->name.' - '.$run_apoderado;
                 $run = $alumno->run."-".$alumno->digit_run;
                 $alumno->run = Rut::format($run, false);
             }
             return $this->userAuthorizeWithData($this->viewGestionar, [
+                'alumnos' => $alumnos,
+            ]);
+        }catch(Exception $e){
+            return redirect()->to('/home')->withErrors($e->getMessage());
+        }
+    }
+
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexData()
+    {
+        try{
+            $alumnos = Alumno::all();
+            foreach($alumnos as $alumno){
+                $apoderados =  Apoderado::where('id', '=', $alumno->id_apoderado)->first();
+                $run_apoderado = $apoderados->run;
+                $alumno->id_apoderado = $apoderados->name.' - '.$run_apoderado;
+                $run = $alumno->run."-".$alumno->digit_run;
+                $alumno->run = Rut::format($run, false);
+            }
+            return $this->userAuthorizeWithData($this->viewGestionarData, [
                 'alumnos' => $alumnos,
             ]);
         }catch(Exception $e){
@@ -79,6 +104,7 @@ class AlumnosDataController extends Controller
                 'maternal_surename' => $request->apellido_materno,
                 'run' => $run,
                 'digit_run' => $digit_run,
+                'address' => $request->direccion,
                 'grade' => $request->curso,
                 'email' => $request->email,
                 'gender' => $request->genero,
@@ -150,6 +176,7 @@ class AlumnosDataController extends Controller
             $run = $run ? $alumno->run = $run : "";
             $digit_run = $digit_run ? $alumno->digit_run = $digit_run : "";
             $request->curso = $request->curso ? $alumno->grade = $request->curso : "";
+            $request->direccion = $request->direccion ? $alumno->address = $request->direccion : "";
             $request->email = $request->email ? $alumno->email = $request->email : "";
             $request->telefono = $request->telefono ? $alumno->phone = $request->telefono : "";
             $request->genero = $request->genero ? $alumno->gender = $request->genero : "";

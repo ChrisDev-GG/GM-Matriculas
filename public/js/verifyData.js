@@ -6,16 +6,15 @@ function isValidFormAlumnos(){
     let inp3 = document.getElementById("InputMS").value;
     let inp4 = document.getElementById("InputRun").value;
     let inp5 = document.getElementById("InputCorreo").value;
-    let inp6 = document.getElementById("InputTelefono").value;
-    let inp7 = document.getElementById("GradeInput").value;
-    let inp8 = document.getElementById("select-run").value;
-
+    let inp6 = document.getElementById("InputDireccion").value;
+    let inp7 = document.getElementById("InputTelefono").value;
+    let inp8 = document.getElementById("GradeInput").value;
+    let inp9 = document.getElementById("select-run").value;
     let date = document.getElementById("InputDate").value;
     let rbtn1 = document.getElementById("radios1");
     let rbtn2 = document.getElementById("radios2");
 
-    console.log(rbtn1.checked);
-    if(inp1 == "" && inp2 == "" && inp3 == "" && inp4 == "" && inp5 == "" && inp6 == "" && inp7 == "" && inp8 == "" && date == "" &&(!rbtn1.checked&&!rbtn2.checked)){
+    if(inp1 == "" && inp2 == "" && inp3 == "" && inp4 == "" && inp5 == "" && inp6 == "" && inp7 == "" && inp8 == "" && inp9 == "" && date == "" &&(!rbtn1.checked&&!rbtn2.checked)){
         let htmlstr = 
             `
                 <div class='alert alert-danger'>
@@ -147,6 +146,35 @@ function isValidFormUsuarios(){
         document.getElementById("errors").innerHTML = ''; 
     }
     
+}
+
+//-----------------------------------------------------------------------------
+
+
+function isValidFormSuplentes(){
+    let send = document.getElementById("send");
+    let inp1 = document.getElementById("InputNames").value;
+    let inp2 = document.getElementById("InputRun").value;
+    let inp3 = document.getElementById("InputCorreo").value;
+    let inp4 = document.getElementById("InputTelefono").value;
+    let inp5 = document.getElementById("select-run").value;
+    let inp6 = document.getElementById("InputAddress").value;
+
+    if(inp1 == "" && inp2 == "" && inp3 == "" && inp4 == "" && inp5 == "" && inp6 == ""){
+        let htmlstr = 
+            `
+                <div class='alert alert-danger'>
+                    <ul class='list-unstyled mb-0'>
+                        <li>Los campos estan vacios</li>
+                    </ul>
+                </div>                
+            `;
+        document.getElementById("errors").innerHTML = htmlstr; 
+        return false;
+    }else{
+        document.getElementById("errors").innerHTML = ''; 
+    }
+
 }
 
 //-----------------------------------------------------------------------------

@@ -32,7 +32,7 @@
         <div class="form-group form-pd">
             <label for="select-run">Sustituye a: *</label>
             <div class="form-group form-pd">
-                <input type="text" class="form-control form-rut" placeholder="Rut (sin puntos y con guion)" id="search">
+                <input type="text" class="form-control form-rut" placeholder="Rut (sin puntos y con guion)" id="search" onfocusout="filterSuplente();">
                 <button type="button" class="btn btn-success" id="filterApoderado" onclick="filter()"><b>Buscar</b></button>
             </div>
             <select class="form-select" title="Apoderados" name="rut_apoderado_principal" id="select-run">

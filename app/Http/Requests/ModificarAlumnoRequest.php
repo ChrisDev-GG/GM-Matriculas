@@ -28,6 +28,7 @@ class ModificarAlumnoRequest extends FormRequest
             'apellido_paterno' => 'nullable',
             'apellido_materno' => 'nullable',
             'rut' => 'nullable|min:9|max:10',
+            'direccion' => 'nullable',
             'curso' => 'nullable',
             'genero' => 'nullable',
             'fecha_de_nacimiento' => 'nullable',

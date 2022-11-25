@@ -28,6 +28,7 @@ class RegistroAlumnoRequest extends FormRequest
             'apellido_paterno' => 'required',
             'apellido_materno' => 'required',
             'rut' => 'required|min:9|max:10',
+            'direccion' => 'nullable',
             'curso' => 'required',
             'genero' => 'required',
             'email' => 'nullable|unique:alumnos,email',

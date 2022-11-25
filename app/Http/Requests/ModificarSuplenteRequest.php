@@ -25,9 +25,9 @@ class ModificarSuplenteRequest extends FormRequest
     {
         return [
             'nombre' => 'nullable',
-            'rut' => 'nullable|min:9|max:10|unique:apoderados,run',
+            'rut' => 'nullable|min:9|max:10|unique:apoderados_suplentes,run',
             'rut_apoderado_principal' => 'nullable',
-            'email' => 'nullable|unique:apoderados,email',
+            'email' => 'nullable|unique:apoderados_suplentes,email',
             'telefono' => 'nullable',
             'direccion' => 'nullable',
         ];

@@ -17,6 +17,7 @@ class Alumno extends Model
         $alumno->maternal_surename = $request->maternal_surename;
         $alumno->grade = $request->grade;
         $alumno->run = $request->run;
+        $alumno->address = $request->address;
         $alumno->digit_run = $request->digit_run;
         $alumno->email = $request->email;
         $alumno->phone = $request->phone;
@@ -44,6 +45,7 @@ class Alumno extends Model
         'paternal_surename',
         'maternal_surename',
         'grade',
+        'address',
         'run',
         'digit_run',
         'birth_date',
